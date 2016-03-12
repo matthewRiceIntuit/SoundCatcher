@@ -12,6 +12,8 @@ namespace SoundCatcher
         public int flurryLeft2 = 27;
         public int flurryRight2 = 40;
 
+        public int drumlite = 100;
+
         public bool bFlipSiblingFlurry = true;
         public bool bIndependentMiddle = true;
         public Graphics g = null;
@@ -41,12 +43,45 @@ namespace SoundCatcher
         {
             level = (byte) l;
         }
+
+        public void set_drumlite1(Color color)
+        {
+            DmxController.setDmxValue(drumlite, color.R);
+            DmxController.setDmxValue(drumlite + 1, color.G);
+            DmxController.setDmxValue(drumlite + 2, color.B);
+
+            DmxController.setDmxValue(drumlite + 3, color.R);
+            DmxController.setDmxValue(drumlite + 4, color.G);
+            DmxController.setDmxValue(drumlite + 5, color.B);
+
+            DmxController.setDmxValue(drumlite + 6, color.R);
+            DmxController.setDmxValue(drumlite + 7, color.G);
+            DmxController.setDmxValue(drumlite + 8, color.B);
+        }
+
+        public void set_drumlite2(Color color)
+        {
+
+            DmxController.setDmxValue(drumlite + 9, color.R);
+            DmxController.setDmxValue(drumlite + 10, color.G);
+            DmxController.setDmxValue(drumlite + 11, color.B);
+
+            DmxController.setDmxValue(drumlite + 12, color.R);
+            DmxController.setDmxValue(drumlite + 13, color.G);
+            DmxController.setDmxValue(drumlite + 14, color.B);
+        }
+
+        
+        
         public void setRGBLeft(Color color)
         {
             DmxController.setDmxValue(flurryLeft + 6, color.R);
             DmxController.setDmxValue(flurryLeft + 7, color.G);
             DmxController.setDmxValue(flurryLeft + 8, color.B);
             DmxController.setDmxValue(flurryLeft + 5, 255);//(byte)(134 - (level / 2)));
+
+            set_drumlite1(color);
+
 
             }
 
@@ -56,6 +91,8 @@ namespace SoundCatcher
             DmxController.setDmxValue(flurryLeft2 + 7, color.G);
             DmxController.setDmxValue(flurryLeft2 + 8, color.B);
             DmxController.setDmxValue(flurryLeft2 + 5, 255);//(byte)(134 - (level / 2)));
+
+            set_drumlite2(color);
         }
 
         public void setRGBRight(Color color)
@@ -64,6 +101,8 @@ namespace SoundCatcher
             DmxController.setDmxValue(flurryRight + 7, color.G);
             DmxController.setDmxValue(flurryRight + 8, color.B);
             DmxController.setDmxValue(flurryRight + 5, 255);//(byte)(134 - (level / 2)));
+
+            set_drumlite1(color);
         }
 
         public void setRGBRight2(Color color)
@@ -72,6 +111,7 @@ namespace SoundCatcher
             DmxController.setDmxValue(flurryRight2 + 7, color.G);
             DmxController.setDmxValue(flurryRight2 + 8, color.B);
             DmxController.setDmxValue(flurryRight2 + 5, 255);//(byte)(134 - (level / 2)));
+            set_drumlite2(color);
         }
 
         public void setAllRGB(Color color)
@@ -80,6 +120,9 @@ namespace SoundCatcher
             setLight2(1,color);
             setLight2(2, color);
             setLight2(3, color);
+            set_drumlite1(color);
+            set_drumlite2(color);
+
         }
 
   
@@ -88,7 +131,7 @@ namespace SoundCatcher
 
             setLight2(0, color);
             setLight2(2,color);
-       
+            set_drumlite1(color);
            
         }
 
@@ -96,6 +139,8 @@ namespace SoundCatcher
         {
             setLight2(1, color);
             setLight2(3, color);
+            set_drumlite2(color);
+
         }
 
         public void setLight(int par, Color color)
@@ -312,6 +357,19 @@ namespace SoundCatcher
 
             }
         }
+
+        void set_drumelite(int r, Color c)
+        {
+            if (r % 2 == 0)
+            {
+                set_drumlite1(c);
+            }
+            else
+            {
+                set_drumlite2(c);
+            }
+        }
+
 
         void setLight2(int r, Color c)
         {
