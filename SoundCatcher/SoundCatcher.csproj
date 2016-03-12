@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE872C45-3833-467E-A275-AD446B2282D3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoundCatcher</RootNamespace>
+    <AssemblyName>SoundCatcher</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>SoundCatcher.Program</StartupObject>
+    <ApplicationIcon>Clipping-Sound.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AudioFrame.cs" />
+    <Compile Include="BeatDetect.cs" />
+    <Compile Include="Chauvet.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="ColorHelper.cs" />
+    <Compile Include="ConfigXml.cs" />
+    <Compile Include="DmxController.cs" />
+    <Compile Include="FlurryScenes.cs" />
+    <Compile Include="FlurryWash.cs" />
+    <Compile Include="FormSettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettingsDialog.Designer.cs">
+      <DependentUpon>FormSettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptionsDialog.Designer.cs">
+      <DependentUpon>FormOptionsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FourierTransform.cs" />
+    <Compile Include="HSBColor.cs" />
+    <Compile Include="Objects\ConfigParam.cs" />
+    <Compile Include="Objects\ChaseSequence.cs" />
+    <Compile Include="Objects\FlurryPos.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormSettingsDialog.resx">
+      <DependentUpon>FormSettingsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptionsDialog.resx">
+      <DependentUpon>FormOptionsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SequenceController.cs" />
+    <Compile Include="Sequences\BarChase1.cs" />
+    <Compile Include="Sequences\BitMapScan.cs" />
+    <Compile Include="Sequences\BlackOut.cs" />
+    <Compile Include="Sequences\Cascade.cs" />
+    <Compile Include="Sequences\Blobs.cs" />
+    <Compile Include="Sequences\ColorWaves2.cs" />
+    <Compile Include="Sequences\slugs.cs" />
+    <Compile Include="Sequences\Tiers2.cs" />
+    <Compile Include="Sequences\Tiers.cs" />
+    <Compile Include="Sequences\LevelTrail2.cs" />
+    <Compile Include="Sequences\EqDrops2.cs" />
+    <Compile Include="Sequences\MovingHeadStrobe.cs" />
+    <Compile Include="Sequences\MovingHeadOnly.cs" />
+    <Compile Include="Sequences\ShootingStar.cs" />
+    <Compile Include="Sequences\EqDrops.cs" />
+    <Compile Include="Sequences\LevelTrail.cs" />
+    <Compile Include="Sequences\SixSpot5.cs" />
+    <Compile Include="Sequences\Overlapping3.cs" />
+    <Compile Include="Sequences\Matrix.cs" />
+    <Compile Include="Sequences\HappyColors.cs" />
+    <Compile Include="Sequences\CellAtomota.cs" />
+    <Compile Include="Sequences\SinCos.cs" />
+    <Compile Include="Sequences\Waves.cs" />
+    <Compile Include="Sequences\Skitter.cs" />
+    <Compile Include="Sequences\FlyingBars.cs" />
+    <Compile Include="Sequences\SixSpot4.cs" />
+    <Compile Include="Sequences\SixSpot3.cs" />
+    <Compile Include="Sequences\Sparkle.cs" />
+    <Compile Include="Sequences\SixSpot2.cs" />
+    <Compile Include="Sequences\White.cs" />
+    <Compile Include="Sequences\SixSpot.cs" />
+    <Compile Include="Sequences\Flash1.cs" />
+    <Compile Include="Sequences\Flurry2.cs" />
+    <Compile Include="Sequences\LevelMeterColor.cs" />
+    <Compile Include="Sequences\LevelMeterColor2.cs" />
+    <Compile Include="Sequences\LevelMeterColor3.cs" />
+    <Compile Include="Sequences\LevelMeterColor4.cs" />
+    <Compile Include="Sequences\LevelMeterColor5.cs" />
+    <Compile Include="Sequences\OddEven.cs" />
+    <Compile Include="Sequences\OverLapping.cs" />
+    <Compile Include="Sequences\OverLapping2.cs" />
+    <Compile Include="Sequences\Plasma.cs" />
+    <Compile Include="Sequences\RainbowFlash.cs" />
+    <Compile Include="Sequences\RunWayChase2.cs" />
+    <Compile Include="Sequences\RunWayChase3.cs" />
+    <Compile Include="Sequences\SequenceBase.cs" />
+    <Compile Include="WaveIn.cs" />
+    <Compile Include="WaveNative.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Clipping-Sound.ico" />
+    <Content Include="Volume.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
