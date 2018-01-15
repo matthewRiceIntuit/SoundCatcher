@@ -65,7 +65,7 @@ namespace SoundCatcher
         // NOTE: This value must be one greater than the number of channels for your
         // device.  SO if you are communicating to a 26 channel device, value should 
         // be 27.
-        private static int   DMX_DATA_LENGTH = 105;
+        private static int   DMX_DATA_LENGTH = 140;
 
         [DllImport("FTD2XX.dll")]
         private static extern FT_STATUS FT_Open(UInt32 uiPort, ref System.IntPtr handle);
@@ -124,27 +124,30 @@ namespace SoundCatcher
         {
             if(buffer==null) buffer = new byte[DMX_DATA_LENGTH ]; // can be any length up to 512. The shorter the faster.
           
-            
-            //Thread.Sleep(750);
-            
-            //int RTimeout = 120;
-            //int WTimeout = 100;
-            //FT_SetTimeouts(handle,RTimeout,WTimeout);
-
-            // Piurges the buffer
-            //FT_Purge(handle,FT_PURGE_RX);
-
+         
+   /*
+            using(uDMX dmx = new uDMX())
+            {
+                if (dmx.IsOpen) 
+                {
+                  // Set channel 0 to value 127
+                  dmx.SetSingleChannel (0, 127);            
+                }
+            }
+     */
+       /*
             status = FT_Open(0, ref handle2);
-            //Thread thread = new Thread(new ThreadStart(writeData2));
-            //thread.Start();
+            {
+                System.Windows.Forms.MessageBox.Show("Unable to open DMX Controller 0 (the secondary one)");
+            }
             setDmxValue(1000, 0);  //Set DMX Start Code
-
-            status = FT_Open(1, ref handle);
+            */
+            status = FT_Open(0, ref handle);
             if (FT_STATUS.FT_OK != status)
             {
-               // System.Windows.Forms.MessageBox.Show("Unable to open DMX Controller 1");
-                //return false;
+                System.Windows.Forms.MessageBox.Show("Unable to open DMX Controller 1 (the main one)");
             }
+            setDmxValue(1000, 0);  //Set DMX Start Code
 
            
 

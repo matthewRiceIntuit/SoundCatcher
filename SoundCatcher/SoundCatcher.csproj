@@ -59,6 +59,9 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LibUsbDotNet">
+      <HintPath>libs\LibUsbDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -182,6 +185,7 @@
     <Compile Include="Sequences\RunWayChase2.cs" />
     <Compile Include="Sequences\RunWayChase3.cs" />
     <Compile Include="Sequences\SequenceBase.cs" />
+    <Compile Include="uDMX.cs" />
     <Compile Include="WaveIn.cs" />
     <Compile Include="WaveNative.cs" />
   </ItemGroup>

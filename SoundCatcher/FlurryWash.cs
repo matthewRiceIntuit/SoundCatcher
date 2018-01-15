@@ -12,7 +12,7 @@ namespace SoundCatcher
         public int flurryLeft2 = 27;
         public int flurryRight2 = 40;
 
-        public int drumlite = 100;
+        public int drumlite = 108;
 
         public bool bFlipSiblingFlurry = true;
         public bool bIndependentMiddle = true;
@@ -358,15 +358,35 @@ namespace SoundCatcher
             }
         }
 
-        void set_drumelite(int r, Color c)
+        void set_drumelite(int r, Color color)
         {
-            if (r % 2 == 0)
+            if (r == 0)
             {
-                set_drumlite1(c);
+                DmxController.setDmxValue(drumlite + 0, color.R);
+                DmxController.setDmxValue(drumlite + 1, color.G);
+                DmxController.setDmxValue(drumlite + 2, color.B);
+            }
+            if (r == 1)
+            {
+                DmxController.setDmxValue(drumlite + 3, color.R);
+                DmxController.setDmxValue(drumlite + 4, color.G);
+                DmxController.setDmxValue(drumlite + 5, color.B);
+            }
+            if (r==2)
+            {
+                DmxController.setDmxValue(drumlite + 6, color.R);
+                DmxController.setDmxValue(drumlite + 7, color.G);
+                DmxController.setDmxValue(drumlite + 8, color.B);
             }
             else
             {
-                set_drumlite2(c);
+                DmxController.setDmxValue(drumlite + 9, color.R);
+                DmxController.setDmxValue(drumlite + 10, color.G);
+                DmxController.setDmxValue(drumlite +11, color.B);
+
+                DmxController.setDmxValue(drumlite + 12, color.R);
+                DmxController.setDmxValue(drumlite + 13, color.G);
+                DmxController.setDmxValue(drumlite + 14, color.B);
             }
         }
 
